@@ -7,7 +7,9 @@ e.g:
 ```lua
 -- Before deprecator
 game:GetService("ReplicatedStorage")
+task.wait(3)
 
 -- After deprecator
 Game:service("ReplicatedStorage")
+wait(3)
 ```
