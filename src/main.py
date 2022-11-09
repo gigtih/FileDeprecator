@@ -1,8 +1,9 @@
-#TODO: add more functions
-deprecated_functions = [
-    "game", "Game",
-    "task.wait", "wait",
-    "GetService", "service"
+functions_list = [
+    "game",
+    "GetService",
+    "task.wait",
+    "WaitForChild",
+    "FindFirstChild"
 ]
 
 DEPRECATOR_VERSION = 0.1
@@ -14,16 +15,17 @@ def deprecate_file(pathToFile: str):
     if not(".lua" in pathToFile):
         raise("File does not contain .lua")
     
-    with open(pathToFile, "r+") as file:
+    with open(pathToFile, "r") as file:
         with open(input("Please insert the path & name of the deprecated file: ") + ".lua" , 'w') as deprecatedFile:
             file_content = file.readlines()
             for lineContent in file_content:
-                for deprecatedFuncs in deprecated_functions:
-                    if deprecatedFuncs in lineContent:
-                        match deprecatedFuncs:
-                            case "game": deprecatedFile.write("Game")
-                            case "GetService": deprecatedFile.write(":service")
-                            case "task.wait": deprecatedFile.write("wait")
+                for functions in functions_list:
+                    if functions in lineContent:
+                        match functions:
+                            case "game": deprecatedFile.write(lineContent.replace("game", "Game"))
+                            case "GetService": deprecatedFile.write(lineContent.replace("GetService", "service"))
+                            case "task.wait": deprecatedFile.write(lineContent.replace("task.wait", "wait"))
+                            case "WaitForChild": deprecatedFile.write(lineContent.replace("WaitForChild", "waitForChild"))
 
             deprecatedFile.close()
 
