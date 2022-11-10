@@ -11,5 +11,5 @@ task.wait(3)
 
 -- After deprecator
 Game:service("ReplicatedStorage")
-wait(3)
+Wait(3)
 ```
