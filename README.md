@@ -13,3 +13,9 @@ task.wait(3)
 Game:service("ReplicatedStorage")
 Wait(3)
 ```
+
+[You can see a better example in the deprecated file located at test/deprecated.lua or just click here.](https://github.com/gigtih/FileDeprecator/blob/main/test/deprecated.lua)
+
+## Why?
+
+For fun, there is no reason to use deprecated functions, in fact, you should avoid them.
