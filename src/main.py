@@ -1,15 +1,14 @@
 functions_list = [
-    "game",
+    # "game",
     "GetService",
     "task.wait",
-    "WaitForChild",
     "FindFirstChild"
 ]
 
 DEPRECATOR_VERSION = 0.1
 
 selected = input("Welcome to the file deprecator. Please select a option: [D] to deprecate (must be a luau file), [V] for the version\n")
-lowered_input = selected.lower()
+lower_input = selected.lower()
 
 def deprecate_file(pathToFile: str):
     if not(".lua" in pathToFile):
@@ -22,17 +21,17 @@ def deprecate_file(pathToFile: str):
                 for functions in functions_list:
                     if functions in lineContent:
                         match functions:
-                            case "game": deprecatedFile.write(lineContent.replace("game", "Game"))
+                            # case "game": deprecatedFile.write(lineContent.replace("game", "Game"))
                             case "GetService": deprecatedFile.write(lineContent.replace("GetService", "service"))
-                            case "task.wait": deprecatedFile.write(lineContent.replace("task.wait", "wait"))
-                            case "WaitForChild": deprecatedFile.write(lineContent.replace("WaitForChild", "waitForChild"))
+                            case "task.wait": deprecatedFile.write(lineContent.replace("task.wait", "Wait"))
+                            case "FindFirstChild": deprecatedFile.write(lineContent.replace("FindFirstChild", "findFirstChild"))
 
             deprecatedFile.close()
 
         file.close()
 
-if lowered_input == 'd':
+if lower_input == 'd':
     file_path = input("Great! Now please insert a path to a file: ")
     deprecate_file(file_path)
-elif lowered_input == 'v':
+elif lower_input == 'v':
     print("The current deprecator version is: " + str(DEPRECATOR_VERSION))
