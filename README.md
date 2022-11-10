@@ -14,7 +14,7 @@ Game:service("ReplicatedStorage")
 Wait(3)
 ```
 
-[You can see a better example in the deprecated file located at test/deprecated.lua or just click here.](https://github.com/gigtih/FileDeprecator/blob/main/test/deprecated.lua)
+[You can see a better example in the test folder.](https://github.com/gigtih/FileDeprecator/tree/main/test)
 
 ## Why?
 
