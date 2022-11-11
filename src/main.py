@@ -22,7 +22,7 @@ def deprecate_file(pathToFile: str):
         file_content = file.readlines()
         print("\nDEPRECATING...")
         with open(deprecated_file_path + ".lua", 'w') as deprecatedFile:
-            # deprecatedFile.write("--[[ File deprecated with file deprecator by gigtih, https://github.com/gigtih/FileDeprecator ]]\n\n")
+            deprecatedFile.write("--[[ File deprecated with file deprecator by gigtih, https://github.com/gigtih/FileDeprecator ]]\n\n")
             # TODO: add game -> Game
             for lineContent in file_content: 
                 if functions_list[0] in lineContent:
