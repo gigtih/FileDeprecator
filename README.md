@@ -19,3 +19,27 @@ Wait(3)
 ## Why?
 
 For fun, there is no reason to use deprecated functions, in fact, you should avoid them.
+
+### Some problems
+
+There are know issues with the program. For example:
+
+```lua
+game:GetService("ReplicatedStorage"):FindFirstChild("Test"):Destroy()
+
+-- Gets deprecated like:
+Game:service("ReplicatedStorage"):FindFirstChild("Test"):Destroy()
+```
+
+You can get around this bug by doing the following (yes I will fix it):
+
+```lua
+game:GetService("ReplicatedStorage")
+:FindFirstChild("Test")
+:Destroy() -- Same thing as game:GetService("ReplicatedStorage"):FindFirstChild("Test"):Destroy() but with new lines
+
+-- After deprecator
+game:GetService("ReplicatedStorage")
+:findFirstChild("Test")
+:destroy()
+```

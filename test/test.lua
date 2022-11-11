@@ -17,3 +17,7 @@ do
 end
 
 ServerScriptService:FindFirstChild("Hello")
+
+game:GetService("ReplicatedStorage")
+:FindFirstChild("SomeModule")
+:Destroy()

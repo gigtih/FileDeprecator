@@ -4,8 +4,9 @@
 functions_list = [
     "GetService",
     "task.wait",
-    "FindFirstChild"
-    # "game",
+    "FindFirstChild",
+    "Destroy"
+    # "game"
 ]
 
 DEPRECATOR_VERSION = 0.1
@@ -22,15 +23,17 @@ def deprecate_file(pathToFile: str):
         file_content = file.readlines()
         print("\nDEPRECATING...")
         with open(deprecated_file_path + ".lua", 'w') as deprecatedFile:
-            deprecatedFile.write("--[[ File deprecated with file deprecator by gigtih, https://github.com/gigtih/FileDeprecator ]]\n\n")
-            # TODO: add game -> Game
-            for lineContent in file_content: 
+            deprecatedFile.write("--[[ File deprecated with file deprecator by gigtih, https://github.com/gigtih/FileDeprecator Version: {0} ]]\n\n".format(str(DEPRECATOR_VERSION)))
+
+            for lineContent in file_content:
                 if functions_list[0] in lineContent:
                     deprecatedFile.write(lineContent.replace("game:GetService", "Game:service"))
                 elif functions_list[1] in lineContent:
                     deprecatedFile.write(lineContent.replace("task.wait", "Wait"))
                 elif functions_list[2] in lineContent:
-                    deprecatedFile.write(lineContent.replace("FindFirstChild", "findFirstChild"))
+                    deprecatedFile.write(lineContent.replace(":FindFirstChild", ":findFirstChild"))
+                elif functions_list[3] in lineContent:
+                    deprecatedFile.write(lineContent.replace(":Destroy", ":destroy"))
                 else:
                     deprecatedFile.write(lineContent)
 

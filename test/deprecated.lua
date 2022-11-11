@@ -1,4 +1,4 @@
---[[ File deprecated with file deprecator by gigtih, https://github.com/gigtih/FileDeprecator ]]
+--[[ File deprecated with file deprecator by gigtih, https://github.com/gigtih/FileDeprecator Version: 0.1 ]]
 
 --[[
     Testing comments
@@ -19,3 +19,7 @@ do
 end
 
 ServerScriptService:findFirstChild("Hello")
+
+Game:service("ReplicatedStorage")
+:findFirstChild("SomeModule")
+:destroy()
