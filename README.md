@@ -39,7 +39,7 @@ game:GetService("ReplicatedStorage")
 :Destroy() -- Same thing as game:GetService("ReplicatedStorage"):FindFirstChild("Test"):Destroy() but with new lines
 
 -- After deprecator
-game:GetService("ReplicatedStorage")
+Game:service("ReplicatedStorage")
 :findFirstChild("Test")
 :destroy()
 ```
