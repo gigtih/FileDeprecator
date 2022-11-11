@@ -1,3 +1,5 @@
+--[[ File deprecated with file deprecator by gigtih, https://github.com/gigtih/FileDeprecator ]]
+
 --[[
     Testing comments
 
