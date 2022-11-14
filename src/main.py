@@ -1,6 +1,8 @@
 # 11/09/2022
 # @gigtih
 
+from sys import argv
+
 functions_list = [
     "GetService",
     "task.wait",
@@ -9,13 +11,13 @@ functions_list = [
     # "game"
 ]
 
-DEPRECATOR_VERSION = 0.1
+DEPRECATOR_VERSION = "0.2"
 
-selected = input("Welcome to the file deprecator. Please select a option: [D] to deprecate (must be a luau file), [V] for the version\n")
-lowerinput = selected.lower().strip()
+# selected = input("Welcome to the file deprecator. Please select a option: [D] to deprecate (must be a luau file), [V] for the version\n")
+# lowerinput = selected.lower().strip()
 
 def deprecate_file(pathToFile: str):
-    if not(".lua" in pathToFile):
+    if not ".lua" in pathToFile:
         raise("File does not contain .lua")
 
     with open(pathToFile, "r") as file:
@@ -44,8 +46,12 @@ def deprecate_file(pathToFile: str):
 
     return
 
-if lowerinput == 'd':
-    file_path = input("Great! Now please insert a path to a file: ")
-    deprecate_file(file_path.strip())
-elif lowerinput == 'v':
-    print("The current deprecator version is: " + str(DEPRECATOR_VERSION))
+
+try:
+    if argv[1] == "version":
+        print("The current deprecator version is: " + DEPRECATOR_VERSION)
+    elif argv[1] == "deprecate":
+        file_path = input("Great! Now please insert a path to a file: ")
+        deprecate_file(file_path.strip())
+except:
+    print("Here some commands:\n[version]: prints the current deprecator version\n[deprecate]: deprecates a file")
