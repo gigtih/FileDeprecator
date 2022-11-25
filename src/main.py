@@ -15,7 +15,7 @@ DEPRECATOR_VERSION = "0.2"
 
 def deprecate_file(pathToFile: str):
     if not ".lua" in pathToFile:
-        raise("File does not contain .lua")
+        exit("File does not contain .lua")
 
     with open(pathToFile, "r") as file:
         deprecated_file_path = input("Please insert the path & name of the deprecated file: ")
@@ -44,11 +44,12 @@ def deprecate_file(pathToFile: str):
     return
 
 
-try:
-    if argv[1] == "version":
-        print("The current deprecator version is: " + DEPRECATOR_VERSION)
-    elif argv[1] == "deprecate":
-        file_path = input("Great! Now please insert a path to a file: ")
-        deprecate_file(file_path.strip())
-except:
-    print("Here some commands:\n[version]: prints the current deprecator version\n[deprecate]: deprecates a file")
+
+if len(argv) == 1:
+    print("Here some commands:\n--version\n--deprecate <filepath>")
+    exit(0)
+
+if argv[1] == "--version":
+    print("The current deprecator version is: " + DEPRECATOR_VERSION)
+elif argv[1] == "--deprecate":
+    deprecate_file(argv[2].strip())
