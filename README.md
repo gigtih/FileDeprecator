@@ -31,7 +31,7 @@ game:GetService("ReplicatedStorage"):FindFirstChild("Test"):Destroy()
 Game:service("ReplicatedStorage"):FindFirstChild("Test"):Destroy()
 ```
 
-You can get around this bug by doing the following (yes I will fix it (**probably**)):
+You can get around this bug by doing the following:
 
 ```lua
 game:GetService("ReplicatedStorage")
